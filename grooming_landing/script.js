@@ -88,8 +88,7 @@ form?.addEventListener('submit', async (e) => {
 // DIKIDI integration hook
 document.querySelector('[data-dikidi]')?.addEventListener('click', (e) => {
   e.preventDefault();
-  // Replace with your real DIKIDI URL
-  window.open('https://dikidi.net/', '_blank', 'noopener');
+  window.open('https://dikidi.net/1877299', '_blank', 'noopener');
 });
 
 // Year
