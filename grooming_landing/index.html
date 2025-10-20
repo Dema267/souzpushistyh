@@ -76,40 +76,40 @@
           <h2 id="services-title" class="section-title">Наши услуги</h2>
           <div class="cards" data-reveal>
             <article class="card">
-              <div class="card-icon" aria-hidden="true">✂️</div>
-              <h3>Стрижка</h3>
-              <p>Индивидуальные стрижки для собак и кошек с учётом породы и характера.</p>
-              <p class="price">от 1000₽</p>
-            </article>
-            <article class="card">
-              <div class="card-icon" aria-hidden="true">🛁</div>
-              <h3>Мытьё и сушка</h3>
-              <p>Деликатные шампуни и бережная сушка для здоровой и сияющей шерсти.</p>
-              <p class="price">от 500₽</p>
-            </article>
-            <article class="card">
-              <div class="card-icon" aria-hidden="true">🧴</div>
-              <h3>Уход за шерстью</h3>
-              <p>Вычёсывание, колтунорез, кондиционирование и профилактика спутываний.</p>
+              <div class="card-icon" aria-hidden="true">🧽</div>
+              <h3>Вычес без мытья</h3>
+              <p>Профессиональное вычесывание шерсти без водных процедур для поддержания здоровья кожи и шерсти.</p>
               <p class="price">от 800₽</p>
             </article>
             <article class="card">
-              <div class="card-icon" aria-hidden="true">🦷</div>
-              <h3>Чистка ушей/зубов</h3>
-              <p>Гигиенический уход, рекомендованный ветеринарами для профилактики проблем.</p>
-              <p class="price">от 400₽</p>
+              <div class="card-icon" aria-hidden="true">🛁</div>
+              <h3>Гигиенический комплекс</h3>
+              <p>Полный гигиенический уход: мытье, сушка, чистка ушей, стрижка когтей и обработка анальных желез.</p>
+              <p class="price">от 1500₽</p>
             </article>
             <article class="card">
-              <div class="card-icon" aria-hidden="true">🧰</div>
-              <h3>Тримминг когтей</h3>
-              <p>Быстро и аккуратно, с заботой о комфорте питомца.</p>
-              <p class="price">300₽</p>
+              <div class="card-icon" aria-hidden="true">✂️</div>
+              <h3>Комплекс с вычесом</h3>
+              <p>Мытье, сушка, профессиональное вычесывание и укладка шерсти с учетом породных особенностей.</p>
+              <p class="price">от 1300₽</p>
             </article>
             <article class="card">
-              <div class="card-icon" aria-hidden="true">🌿</div>
-              <h3>SPA-процедуры</h3>
-              <p>Арома-уход, маски и расслабляющий массаж для спокойствия и блеска.</p>
-              <p class="price">от 900₽</p>
+              <div class="card-icon" aria-hidden="true">🎨</div>
+              <h3>Комплекс со стрижкой</h3>
+              <p>Полный комплекс услуг включая модельную стрижку, мытье, сушку и финальную укладку.</p>
+              <p class="price">от 1800₽</p>
+            </article>
+            <article class="card">
+              <div class="card-icon" aria-hidden="true">🧴</div>
+              <h3>Мытье косметикой по типу шерсти</h3>
+              <p>Специализированное мытье с профессиональной косметикой, подобранной под тип шерсти вашего питомца.</p>
+              <p class="price">от 950₽</p>
+            </article>
+            <article class="card">
+              <div class="card-icon" aria-hidden="true">➕</div>
+              <h3>Дополнительные услуги</h3>
+              <p>Чистка зубов, обработка когтей, удаление колтунов, ароматерапия и другие дополнительные процедуры.</p>
+              <p class="price">от 300₽</p>
             </article>
           </div>
         </div>
@@ -170,60 +170,13 @@
       <section id="booking" class="section booking" aria-labelledby="booking-title">
         <div class="container">
           <h2 id="booking-title" class="section-title">Запись на груминг</h2>
-          <form class="booking-form" novalidate data-reveal>
-            <div class="form-grid">
-              <label>
-                <span>Имя</span>
-                <input type="text" name="name" autocomplete="name" required />
-              </label>
-              <label>
-                <span>Телефон</span>
-                <input type="tel" name="phone" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required />
-              </label>
-              <label>
-                <span>Вид питомца</span>
-                <select name="pet" required>
-                  <option value="">Выберите</option>
-                  <option>Собака</option>
-                  <option>Кошка</option>
-                  <option>Другое</option>
-                </select>
-              </label>
-              <label>
-                <span>Услуга</span>
-                <select name="service" required>
-                  <option value="">Выберите</option>
-                  <option>Стрижка</option>
-                  <option>Мытьё и сушка</option>
-                  <option>Уход за шерстью</option>
-                  <option>Чистка ушей/зубов</option>
-                  <option>Тримминг когтей</option>
-                  <option>SPA-процедуры</option>
-                </select>
-              </label>
-              <label>
-                <span>Дата</span>
-                <input type="date" name="date" required />
-              </label>
-              <label>
-                <span>Время</span>
-                <input type="time" name="time" required />
-              </label>
-              <label class="full">
-                <span>Комментарий</span>
-                <textarea name="comment" rows="3" placeholder="Пожелания, особенности питомца..."></textarea>
-              </label>
-              <label class="consent full">
-                <input type="checkbox" name="consent" required />
-                <span>Согласен(а) с <a href="#" target="_blank" rel="noopener">политикой конфиденциальности</a></span>
-              </label>
+          <div class="booking-promo" data-reveal>
+            <div class="promo-content">
+              <h3>🎉 Скидка 10% на первое посещение!</h3>
+              <p>Добро пожаловать в наш салон! Для новых клиентов действует специальное предложение.</p>
             </div>
-            <div class="form-actions">
-              <button type="submit" class="btn btn-primary">Записаться</button>
-              <a class="btn btn-ghost" href="https://dikidi.net/1877299" target="_blank" rel="noopener" data-dikidi>Открыть в DIKIDI</a>
-            </div>
-            <p class="form-note">После отправки с вами свяжется администратор для подтверждения.</p>
-          </form>
+            <a class="btn btn-primary btn-large" href="https://dikidi.net/1877299" target="_blank" rel="noopener">Записаться онлайн</a>
+          </div>
         </div>
       </section>
 
