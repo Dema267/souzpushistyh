@@ -88,8 +88,51 @@ form?.addEventListener('submit', async (e) => {
 // DIKIDI integration hook
 document.querySelector('[data-dikidi]')?.addEventListener('click', (e) => {
   e.preventDefault();
-  window.open('https://dikidi.net/1877299', '_blank', 'noopener');
+  const dikidiUrl = window.CONFIG?.DIKIDI_URL || 'https://dikidi.net/1877299';
+  window.open(dikidiUrl, '_blank', 'noopener');
 });
+
+// Yandex Maps initialization
+function initYandexMap() {
+  if (!window.CONFIG?.YANDEX_MAPS_API_KEY || window.CONFIG.YANDEX_MAPS_API_KEY === 'YOUR_YANDEX_MAPS_API_KEY_HERE') {
+    console.warn('Yandex Maps API key not configured. Please update config.js');
+    document.getElementById('yandex-map').innerHTML = '<div style="display: flex; align-items: center; justify-content: center; height: 100%; background: #f5f5f5; color: #666; border-radius: 12px;">Карта недоступна. Настройте API ключ в config.js</div>';
+    return;
+  }
+
+  // Load Yandex Maps API
+  const script = document.createElement('script');
+  script.src = `https://api-maps.yandex.ru/2.1/?apikey=${window.CONFIG.YANDEX_MAPS_API_KEY}&lang=ru_RU`;
+  script.onload = () => {
+    ymaps.ready(() => {
+      const map = new ymaps.Map('yandex-map', {
+        center: window.CONFIG.MAP_CENTER || [37.620070, 55.753630],
+        zoom: window.CONFIG.MAP_ZOOM || 12,
+        controls: ['zoomControl', 'fullscreenControl']
+      });
+
+      // Add marker
+      const marker = new ymaps.Placemark(window.CONFIG.MAP_CENTER || [37.620070, 55.753630], {
+        balloonContent: 'Груминг-салон «Лапочки»'
+      }, {
+        preset: 'islands#redDotIcon'
+      });
+
+      map.geoObjects.add(marker);
+    });
+  };
+  script.onerror = () => {
+    document.getElementById('yandex-map').innerHTML = '<div style="display: flex; align-items: center; justify-content: center; height: 100%; background: #f5f5f5; color: #666; border-radius: 12px;">Ошибка загрузки карты</div>';
+  };
+  document.head.appendChild(script);
+}
+
+// Initialize map when DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initYandexMap);
+} else {
+  initYandexMap();
+}
 
 // Year
 const yearEl = document.getElementById('year');
