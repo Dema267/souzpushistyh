@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <meta
+      name="description"
+      content="Груминг-салон «Лапочки»: гуманный уход за питомцами. Стрижка, мытьё, уход за шерстью, тримминг когтей, SPA. Быстрая запись онлайн."
+    />
+    <title>Груминг-салон «Лапочки»</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="#" aria-label="На главную">
+          <span class="logo-mark" aria-hidden="true">🐾</span>
+          <span class="logo-text">Лапочки</span>
+        </a>
+
+        <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+          <span class="visually-hidden">Открыть меню</span>
+        </button>
+
+        <nav id="primary-nav" class="primary-nav" aria-label="Основное меню">
+          <ul>
+            <li><a href="#services">Услуги</a></li>
+            <li><a href="#portfolio">Работы</a></li>
+            <li><a href="#masters">Мастера</a></li>
+            <li><a href="#booking">Запись</a></li>
+            <li><a href="#price">Прайс</a></li>
+            <li><a href="#contacts">Контакты</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <section class="hero" role="region" aria-label="Главный экран">
+        <div class="hero-media" aria-hidden="true">
+          <picture>
+            <source
+              srcset="https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=1600&auto=format&fit=crop"
+              media="(min-width: 768px)"
+            />
+            <img
+              src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=1200&auto=format&fit=crop"
+              alt="Счастливые ухоженные питомцы"
+              decoding="async"
+            />
+          </picture>
+          <div class="hero-overlay" aria-hidden="true"></div>
+        </div>
+        <div class="container hero-content">
+          <h1>Гуманный груминг — по доступным ценам!</h1>
+          <p class="subtitle">Профессиональный уход за вашими любимцами в уютной атмосфере.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#booking">Записаться на груминг</a>
+            <a class="btn btn-ghost" href="#services">Узнать больше</a>
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <main id="main">
+      <section id="services" class="section services" aria-labelledby="services-title">
+        <div class="container">
+          <h2 id="services-title" class="section-title">Наши услуги</h2>
+          <div class="cards" data-reveal>
+            <article class="card">
+              <div class="card-icon" aria-hidden="true">✂️</div>
+              <h3>Стрижка</h3>
+              <p>Индивидуальные стрижки для собак и кошек с учётом породы и характера.</p>
+              <p class="price">от 1000₽</p>
+            </article>
+            <article class="card">
+              <div class="card-icon" aria-hidden="true">🛁</div>
+              <h3>Мытьё и сушка</h3>
+              <p>Деликатные шампуни и бережная сушка для здоровой и сияющей шерсти.</p>
+              <p class="price">от 500₽</p>
+            </article>
+            <article class="card">
+              <div class="card-icon" aria-hidden="true">🧴</div>
+              <h3>Уход за шерстью</h3>
+              <p>Вычёсывание, колтунорез, кондиционирование и профилактика спутываний.</p>
+              <p class="price">от 800₽</p>
+            </article>
+            <article class="card">
+              <div class="card-icon" aria-hidden="true">🦷</div>
+              <h3>Чистка ушей/зубов</h3>
+              <p>Гигиенический уход, рекомендованный ветеринарами для профилактики проблем.</p>
+              <p class="price">от 400₽</p>
+            </article>
+            <article class="card">
+              <div class="card-icon" aria-hidden="true">🧰</div>
+              <h3>Тримминг когтей</h3>
+              <p>Быстро и аккуратно, с заботой о комфорте питомца.</p>
+              <p class="price">300₽</p>
+            </article>
+            <article class="card">
+              <div class="card-icon" aria-hidden="true">🌿</div>
+              <h3>SPA-процедуры</h3>
+              <p>Арома-уход, маски и расслабляющий массаж для спокойствия и блеска.</p>
+              <p class="price">от 900₽</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="portfolio" class="section portfolio" aria-labelledby="portfolio-title">
+        <div class="container">
+          <h2 id="portfolio-title" class="section-title">Работы мастеров</h2>
+          <div class="slider" data-reveal>
+            <button class="slider-btn prev" aria-label="Предыдущая работа">‹</button>
+            <div class="slides" aria-live="polite">
+              <figure class="slide is-active">
+                <img src="https://images.unsplash.com/photo-1612538498892-ec1c62a0a2b1?q=80&w=1200&auto=format&fit=crop" alt="До и после: Лайка Боня" />
+                <figcaption>Лайка Боня до и после первого салонного ухода. «Спасибо мастеру Марии, пёсик как новый!»</figcaption>
+              </figure>
+              <figure class="slide">
+                <img src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?q=80&w=1200&auto=format&fit=crop" alt="До и после: Персидская кошка" />
+                <figcaption>Персидская кошка — деликатная стрижка и уход за шерстью.</figcaption>
+              </figure>
+              <figure class="slide">
+                <img src="https://images.unsplash.com/photo-1612532149025-8aaf77f3df90?q=80&w=1200&auto=format&fit=crop" alt="До и после: Йорк" />
+                <figcaption>Йорк — модельная стрижка, чистка ушей и SPA-уход.</figcaption>
+              </figure>
+            </div>
+            <button class="slider-btn next" aria-label="Следующая работа">›</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="masters" class="section masters" aria-labelledby="masters-title">
+        <div class="container">
+          <h2 id="masters-title" class="section-title">О мастерах</h2>
+          <ul class="team" data-reveal>
+            <li class="teammate">
+              <img class="avatar" src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=400&auto=format&fit=crop" alt="Мария, старший грумер" />
+              <h3>Мария</h3>
+              <p class="muted">Старший грумер · 7 лет опыта</p>
+              <ul class="badges">
+                <li>🏅 PetPro сертификация</li>
+                <li>🎓 Курсы «Chic Grooming»</li>
+              </ul>
+              <blockquote>«Люблю животных и подхожу к каждому с заботой»</blockquote>
+            </li>
+            <li class="teammate">
+              <img class="avatar" src="https://images.unsplash.com/photo-1520975922203-bf1bd7f4f3f3?q=80&w=400&auto=format&fit=crop" alt="Александр, специалист по кошкам" />
+              <h3>Александр</h3>
+              <p class="muted">Специалист по кошкам · 5 лет опыта</p>
+              <ul class="badges">
+                <li>📜 Диплом Animal Grooming School</li>
+                <li>🐱 Поведенческая адаптация</li>
+              </ul>
+              <blockquote>«Люблю животных и подхожу к каждому с заботой»</blockquote>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="booking" class="section booking" aria-labelledby="booking-title">
+        <div class="container">
+          <h2 id="booking-title" class="section-title">Запись на груминг</h2>
+          <form class="booking-form" novalidate data-reveal>
+            <div class="form-grid">
+              <label>
+                <span>Имя</span>
+                <input type="text" name="name" autocomplete="name" required />
+              </label>
+              <label>
+                <span>Телефон</span>
+                <input type="tel" name="phone" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required />
+              </label>
+              <label>
+                <span>Вид питомца</span>
+                <select name="pet" required>
+                  <option value="">Выберите</option>
+                  <option>Собака</option>
+                  <option>Кошка</option>
+                  <option>Другое</option>
+                </select>
+              </label>
+              <label>
+                <span>Услуга</span>
+                <select name="service" required>
+                  <option value="">Выберите</option>
+                  <option>Стрижка</option>
+                  <option>Мытьё и сушка</option>
+                  <option>Уход за шерстью</option>
+                  <option>Чистка ушей/зубов</option>
+                  <option>Тримминг когтей</option>
+                  <option>SPA-процедуры</option>
+                </select>
+              </label>
+              <label>
+                <span>Дата</span>
+                <input type="date" name="date" required />
+              </label>
+              <label>
+                <span>Время</span>
+                <input type="time" name="time" required />
+              </label>
+              <label class="full">
+                <span>Комментарий</span>
+                <textarea name="comment" rows="3" placeholder="Пожелания, особенности питомца..."></textarea>
+              </label>
+              <label class="consent full">
+                <input type="checkbox" name="consent" required />
+                <span>Согласен(а) с <a href="#" target="_blank" rel="noopener">политикой конфиденциальности</a></span>
+              </label>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Записаться</button>
+              <a class="btn btn-ghost" href="#" data-dikidi>Открыть в DIKIDI</a>
+            </div>
+            <p class="form-note">После отправки с вами свяжется администратор для подтверждения.</p>
+          </form>
+        </div>
+      </section>
+
+      <section id="price" class="section price" aria-labelledby="price-title">
+        <div class="container">
+          <h2 id="price-title" class="section-title">Прайс-лист</h2>
+          <div class="table-wrap" data-reveal>
+            <table class="price-table">
+              <thead>
+                <tr>
+                  <th>Услуга</th>
+                  <th>Для собак</th>
+                  <th>Для кошек</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Стрижка</td>
+                  <td>от 1000₽</td>
+                  <td>от 1500₽</td>
+                </tr>
+                <tr>
+                  <td>Мытьё и сушка</td>
+                  <td>от 500₽</td>
+                  <td>от 800₽</td>
+                </tr>
+                <tr>
+                  <td>Тримминг когтей</td>
+                  <td>300₽</td>
+                  <td>300₽</td>
+                </tr>
+              </tbody>
+            </table>
+            <a class="btn btn-secondary" href="#" download>Скачать полный прайс (PDF)</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contacts" class="site-footer" aria-labelledby="contacts-title">
+      <div class="container footer-grid">
+        <div class="footer-brand" data-reveal>
+          <div class="logo">
+            <span class="logo-mark" aria-hidden="true">🐾</span>
+            <span class="logo-text">Лапочки</span>
+          </div>
+          <p class="muted">Груминг-салон «Лапочки», заботимся о питомцах с любовью!</p>
+        </div>
+
+        <div class="footer-contacts" data-reveal>
+          <h2 id="contacts-title" class="footer-title">Контакты</h2>
+          <ul class="contact-list">
+            <li>
+              <span class="icon" aria-hidden="true">📍</span>
+              <span>
+                Адрес: <a href="https://yandex.ru/maps" target="_blank" rel="noopener">Открыть на Яндекс.Картах</a>
+              </span>
+            </li>
+            <li>
+              <span class="icon" aria-hidden="true">📞</span>
+              <a href="tel:+79990000000">+7 (999) 000-00-00</a>
+            </li>
+            <li>
+              <span class="icon" aria-hidden="true">✉️</span>
+              <a href="mailto:hello@lapochki.ru">hello@lapochki.ru</a>
+            </li>
+          </ul>
+
+          <div class="socials">
+            <a class="social" href="https://t.me/" target="_blank" rel="noopener" aria-label="Telegram">Telegram</a>
+            <a class="social" href="https://wa.me/79990000000" target="_blank" rel="noopener" aria-label="WhatsApp">WhatsApp</a>
+            <a class="social" href="https://vk.com/" target="_blank" rel="noopener" aria-label="VK">VK</a>
+            <a class="social" href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+          </div>
+        </div>
+
+        <div class="footer-map" data-reveal>
+          <div class="map-embed" role="img" aria-label="Карта салона">
+            <!-- Замените на ваш встроенный код карты Яндекс.Мапс -->
+            <img src="https://static-maps.yandex.ru/1.x/?ll=37.620070,55.753630&z=12&size=450,250&l=map" alt="Карта расположения салона" />
+          </div>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <div class="links">
+          <a href="#">Политика конфиденциальности</a>
+          <a href="#">Публичная оферта</a>
+        </div>
+        <small>© <span id="year"></span> «Лапочки»</small>
+      </div>
+    </footer>
+
+    <div id="toast" role="status" aria-live="polite" class="toast" hidden>
+      <span class="toast-text">Спасибо! Мы свяжемся с вами в ближайшее время.</span>
+    </div>
+
+    <script src="script.js" defer></script>
+  </body>
+  </html>
+
+
