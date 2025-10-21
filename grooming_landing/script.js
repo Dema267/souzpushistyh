@@ -25,33 +25,103 @@ if ('IntersectionObserver' in window) {
   revealEls.forEach((el) => el.classList.add('is-visible'));
 }
 
-// Slider
-function initSlider(root) {
-  const slides = Array.from(root.querySelectorAll('.slide'));
-  const prev = root.querySelector('.prev');
-  const next = root.querySelector('.next');
-  let index = slides.findIndex((s) => s.classList.contains('is-active'));
-  if (index < 0) index = 0;
+// Portfolio Modal
+const portfolioModal = document.getElementById('portfolio-modal');
+const modalTitle = document.getElementById('modal-title');
+const modalGallery = document.getElementById('modal-gallery');
+const modalClose = document.querySelector('.modal-close');
+const modalOverlay = document.querySelector('.modal-overlay');
 
-  function show(i) {
-    slides.forEach((s, si) => s.classList.toggle('is-active', si === i));
+// Данные для галерей
+const portfolioData = {
+  works: {
+    title: 'Фото работ',
+    images: [
+      { src: 'assets/portfolio-1.jpg', alt: 'До и после: Лайка Боня' },
+      { src: 'assets/portfolio-2.jpg', alt: 'Персидская кошка' },
+      { src: 'assets/portfolio-3.jpg', alt: 'Йоркширский терьер' },
+      { src: 'assets/portfolio-4.jpg', alt: 'Золотистый ретривер' },
+      { src: 'assets/portfolio-5.jpg', alt: 'Мопс' },
+      { src: 'assets/portfolio-6.jpg', alt: 'Шпиц' },
+      { src: 'assets/portfolio-7.jpg', alt: 'Бигль' },
+      { src: 'assets/portfolio-8.jpg', alt: 'Такса' },
+      { src: 'assets/portfolio-9.jpg', alt: 'Хаски' },
+      { src: 'assets/portfolio-10.jpg', alt: 'Лабрадор' },
+    ]
+  },
+  salon: {
+    title: 'Фото салона',
+    images: [
+      { src: 'assets/salon-1.jpg', alt: 'Вход в салон' },
+      { src: 'assets/salon-2.jpg', alt: 'Зал ожидания' },
+      { src: 'assets/salon-3.jpg', alt: 'Рабочее место грумера' },
+      { src: 'assets/salon-4.jpg', alt: 'Зона стрижки' },
+      { src: 'assets/salon-5.jpg', alt: 'Зона мытья' },
+      { src: 'assets/salon-6.jpg', alt: 'Интерьер салона' },
+      { src: 'assets/salon-7.jpg', alt: 'Ресепшн' },
+      { src: 'assets/salon-8.jpg', alt: 'Внешний вид салона' }
+    ]
+  },
+  cosmetics: {
+    title: 'Наша косметика',
+    images: [
+      { src: 'assets/cosmetics-1.jpg', alt: 'Шампуни для собак' },
+      { src: 'assets/cosmetics-2.jpg', alt: 'Шампуни для кошек' },
+      { src: 'assets/cosmetics-3.jpg', alt: 'Кондиционеры' },
+      { src: 'assets/cosmetics-4.jpg', alt: 'Спреи для ухода' },
+    ]
   }
-  prev?.addEventListener('click', () => {
-    index = (index - 1 + slides.length) % slides.length;
-    show(index);
-  });
-  next?.addEventListener('click', () => {
-    index = (index + 1) % slides.length;
-    show(index);
+};
+
+// Открытие модального окна
+function openPortfolioModal(category) {
+  const data = portfolioData[category];
+  if (!data) return;
+
+  modalTitle.textContent = data.title;
+  modalGallery.innerHTML = '';
+
+  data.images.forEach((image, index) => {
+    const galleryItem = document.createElement('div');
+    galleryItem.className = 'gallery-item';
+    galleryItem.innerHTML = `
+      <img src="${image.src}" alt="${image.alt}" loading="lazy" />
+    `;
+
+    galleryItem.addEventListener('click', () => {
+      openImageLightbox(image.src, image.alt);
+    });
+
+    modalGallery.appendChild(galleryItem);
   });
 
-  // auto-advance
-  setInterval(() => {
-    index = (index + 1) % slides.length;
-    show(index);
-  }, 6000);
+  portfolioModal.hidden = false;
+  document.body.style.overflow = 'hidden';
 }
-document.querySelectorAll('.slider').forEach(initSlider);
+
+// Закрытие модального окна
+function closePortfolioModal() {
+  portfolioModal.hidden = true;
+  document.body.style.overflow = '';
+}
+
+// Обработчики событий
+document.querySelectorAll('.portfolio-category').forEach(category => {
+  category.addEventListener('click', () => {
+    const categoryType = category.getAttribute('data-category');
+    openPortfolioModal(categoryType);
+  });
+});
+
+modalClose?.addEventListener('click', closePortfolioModal);
+modalOverlay?.addEventListener('click', closePortfolioModal);
+
+// Закрытие по клавише Escape
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && !portfolioModal.hidden) {
+    closePortfolioModal();
+  }
+});
 
 // Booking form
 const form = document.querySelector('.booking-form');
@@ -137,5 +207,44 @@ if (document.readyState === 'loading') {
 // Year
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+
+// Image Lightbox functionality
+function openImageLightbox(imageSrc, imageAlt) {
+  // Создаем lightbox элемент
+  const lightbox = document.createElement('div');
+  lightbox.className = 'image-lightbox';
+  lightbox.innerHTML = `
+    <div class="lightbox-content">
+      <button class="lightbox-close" aria-label="Закрыть">×</button>
+      <img class="lightbox-image" src="${imageSrc}" alt="${imageAlt}" />
+      <div class="lightbox-caption">${imageAlt}</div>
+    </div>
+  `;
+
+  // Добавляем в DOM
+  document.body.appendChild(lightbox);
+  document.body.style.overflow = 'hidden';
+
+  // Обработчики событий
+  const closeBtn = lightbox.querySelector('.lightbox-close');
+  const closeLightbox = () => {
+    document.body.removeChild(lightbox);
+    document.body.style.overflow = '';
+  };
+
+  closeBtn.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  // Закрытие по клавише Escape
+  const handleEscape = (e) => {
+    if (e.key === 'Escape') {
+      closeLightbox();
+      document.removeEventListener('keydown', handleEscape);
+    }
+  };
+  document.addEventListener('keydown', handleEscape);
+}
 
 
